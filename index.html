@@ -1,61 +1,360 @@
-<h2>Publications</h2>
-<ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thomas Wong – Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --accent: #1e88e5;
+      --accent-light: #e3f2fd;
+      --text-main: #222;
+      --text-muted: #555;
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+      --max-width: 980px;
+    }
 
-  <li style="margin-bottom:1.5rem;">
-    <strong>PrivaDE: Privacy-preserving Data Evaluation for Blockchain-based Data Marketplaces</strong>
-    <br>
-    <em>Machine Learning · Secure Computation · Cryptography</em>
-    <br>
-    <a href="https://arxiv.org/abs/2510.18109" target="_blank">
-      https://arxiv.org/abs/2510.18109
-    </a>
-    <p style="margin:0.3rem 0 0;">
-      Project objective: Design a cryptographic protocol for privacy-preserving utility scoring and selection of data for machine learning, leveraging blockchains for malicious-security guarantees and strong privacy protection.
-      <br>
-      Technical Work: Integrated model distillation, model splitting, and cut-and-choose ZK proofs to achieve <15-min inference on VGG-8 (4.5M params).
-      <br>
-      Result: Accepted to ASIACCS 2026, Bangalore, India.
-    </p>
-    <small>2024 – 2025</small>
-  </li>
+    * {
+      box-sizing: border-box;
+    }
 
-  <li style="margin-bottom:1.5rem;">
-    <strong>Automating the Theory Repair in First Order Logic</strong>
-    <br>
-    <em>Artificial Intelligence · Logic Programming</em>
-    <br>
-    <a href="https://www.research.ed.ac.uk/en/publications/automating-theory-repair-in-first-order-logic" target="_blank">
-      https://www.research.ed.ac.uk/en/publications/automating-theory-repair-in-first-order-logic
-    </a>
-    <p style="margin:0.3rem 0 0;">
-      Objective: Extend the ABC theory repair Prolog system to full first-order logic.
-      <br>
-      Technical Work: Rewrote fault-detection and repair-generation modules.
-      <br>
-      Result: Published at CogAI2023.
-    </p>
-    <small>2023</small>
-  </li>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-  <li style="margin-bottom:1.5rem;">
-    <strong>Towards Practical Automatic Piano Reduction using BERT with Semi-supervised Learning (Final-Year Project)</strong>
-    <br>
-    <em>Music Information Retrieval · Machine Learning</em>
-    <br>
-    <a href="ISMIR2022.pdf" target="_blank">
-      https://tinyurl.com/ismir2022midibert
-    </a>
-    <!-- ❗Later replace link above with:
-         <a href="papers/PianoReduction.pdf">Download PDF</a>
-         ⤷ after uploading PDF to repo -->
-    <p style="margin:0.3rem 0 0;">
-      Objective: Automatically reduce orchestral scores into piano-playable form via ML.
-      <br>
-      Technical Work: Tokenised musical data, applied BERT to sequence-to-sequence transformation; explored CycleGAN variants.
-      <br>
-      Result: Submitted to ISMIR 2022 — received weak-reject.
-    </p>
-    <small>2021 – 2022</small>
-  </li>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-</ul>
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.2rem;
+    }
+
+    .name-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+
+    .name-row h1 {
+      font-size: 2.1rem;
+      margin: 0;
+    }
+
+    .name-row .subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .affiliation {
+      margin-top: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .header-links {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .header-links a {
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: #fff;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 3.2fr);
+      gap: 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Stack on small screens */
+    @media (max-width: 800px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sidebar-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1rem;
+    }
+
+    .sidebar-card h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .sidebar-card p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.1rem 1.2rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    .pub-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .pub-title {
+      font-weight: 600;
+    }
+
+    .pub-tags {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .pub-link {
+      font-size: 0.9rem;
+      word-break: break-all;
+    }
+
+    .pub-desc {
+      margin: 0.3rem 0 0.1rem;
+      font-size: 0.95rem;
+    }
+
+    .pub-year {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-right: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <div class="name-row">
+        <h1>Thomas Wong</h1>
+        <div class="subtitle">PhD Candidate · Secure Machine Learning & Cryptography</div>
+      </div>
+      <div class="affiliation">
+        School of Informatics, University of Edinburgh<br>
+        Edinburgh, United Kingdom
+      </div>
+      <div class="header-links">
+        <!-- TODO: replace with your real details -->
+        <a href="mailto:firstname.lastname@ed.ac.uk">Email</a>
+        <a href="https://github.com/tpmmthomas" target="_blank">GitHub</a>
+        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+        <a href="CV.pdf" target="_blank">CV (PDF)</a>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- Sidebar / Left Column -->
+      <aside class="sidebar-card">
+        <h2>About</h2>
+        <p>
+          I am a PhD candidate in Informatics at the University of Edinburgh, working at the intersection of
+          <strong>machine learning</strong>, <strong>cryptography</strong>, and <strong>blockchains</strong>.
+        </p>
+        <p>
+          My current research focuses on <strong>privacy-preserving data valuation</strong>,
+          <strong>secure ML protocols</strong> (MPC / ZK), and <strong>decentralised ML marketplaces</strong>.
+        </p>
+        <p class="muted">
+          I also collaborate with industry on algorithmic trading and ML-driven financial systems.
+        </p>
+
+        <h2>Research Interests</h2>
+        <p>
+          <span class="chip">Secure Machine Learning</span>
+          <span class="chip">Zero-Knowledge Proofs</span>
+          <span class="chip">Secure Multi-Party Computation</span>
+          <span class="chip">Data Valuation</span>
+          <span class="chip">Blockchain Protocols</span>
+          <span class="chip">Algorithmic Trading</span>
+        </p>
+      </aside>
+
+      <!-- Main Column -->
+      <main class="main">
+
+        <!-- Publications -->
+        <section id="publications">
+          <h2>Publications & Preprints</h2>
+
+          <ul class="pub-list">
+
+            <li class="pub-item">
+              <div class="pub-title">
+                PrivaDE: Privacy-preserving Data Evaluation for Blockchain-based Data Marketplaces
+              </div>
+              <div class="pub-tags">
+                Machine Learning · Secure Computation · Cryptography
+              </div>
+              <div class="pub-link">
+                <a href="https://arxiv.org/abs/2510.18109" target="_blank">
+                  https://arxiv.org/abs/2510.18109
+                </a>
+              </div>
+              <p class="pub-desc">
+                Project objective: Design a cryptographic protocol for privacy-preserving utility scoring and
+                selection of data for machine learning, leveraging blockchains for malicious-security guarantees
+                and strong privacy protection.
+                <br>
+                Technical work: Integrated model distillation, model splitting, and cut-and-choose ZK proofs to
+                achieve &lt;15-min inference on VGG-8 (4.5M parameters).
+                <br>
+                Result: Accepted to ASIACCS 2026, Bangalore, India.
+              </p>
+              <div class="pub-year">2024 – 2025</div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-title">
+                Automating the Theory Repair in First Order Logic
+              </div>
+              <div class="pub-tags">
+                Artificial Intelligence · Logic Programming
+              </div>
+              <div class="pub-link">
+                <a href="https://www.research.ed.ac.uk/en/publications/automating-theory-repair-in-first-order-logic" target="_blank">
+                  https://www.research.ed.ac.uk/en/publications/automating-theory-repair-in-first-order-logic
+                </a>
+              </div>
+              <p class="pub-desc">
+                Objective: Extend the ABC theory repair system (written in Prolog) to a full first-order logic system.
+                <br>
+                Technical work: Rewrote the fault-detection and repair-generation modules.
+                <br>
+                Result: System successfully implemented and published at CogAI 2023.
+              </p>
+              <div class="pub-year">2023</div>
+            </li>
+
+            <li class="pub-item">
+              <div class="pub-title">
+                Towards Practical Automatic Piano Reduction using BERT with Semi-supervised Learning (Final-Year Project)
+              </div>
+              <div class="pub-tags">
+                Music Information Retrieval · Machine Learning
+              </div>
+              <div class="pub-link">
+                <!-- Assumes ISMIR2022.pdf is in the same repo root -->
+                <a href="ISMIR2022.pdf" target="_blank">
+                  Download PDF (ISMIR 2022 submission)
+                </a>
+              </div>
+              <p class="pub-desc">
+                Objective: Automatically reduce orchestral scores into piano-playable form via machine learning.
+                <br>
+                Technical work: Converted musical data into a tokenised format and applied BERT models to perform
+                sequence-to-sequence transformation; explored CycleGAN-based approaches.
+                <br>
+                Result: Submitted to ISMIR 2022 and received weak-reject.
+              </p>
+              <div class="pub-year">2021 – 2022</div>
+            </li>
+
+          </ul>
+        </section>
+
+        <!-- Teaching / Supervision (optional, edit or remove) -->
+        <section id="teaching">
+          <h2>Teaching & Supervision</h2>
+          <p class="muted">
+            (Add details here if you like, for example:)
+          </p>
+          <ul>
+            <li>Tutorial Assistant, <em>Machine Learning</em>, University of Edinburgh.</li>
+            <li>Tutorial Assistant, <em>Computer Security</em>, University of Edinburgh.</li>
+          </ul>
+        </section>
+
+        <!-- Misc / Service / Industry -->
+        <section id="misc">
+          <h2>Service & Industry</h2>
+          <ul>
+            <li>
+              Quantitative research & algorithmic trading in cryptocurrencies, including execution-realistic
+              backtesting and production deployment of ML-based strategies.
+            </li>
+            <li>
+              Interested in collaborations at the intersection of secure ML, cryptography, and DeFi / blockchain
+              infrastructure.
+            </li>
+          </ul>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</body>
+</html>
